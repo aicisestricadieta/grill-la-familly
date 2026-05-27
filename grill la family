@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🔥 Grill La Family 🔥</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html,body{
+    overflow-x:hidden;
+    background:#050505;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+/* GLOBAL FIRE EFFECT */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-10;
+
+    background:
+    radial-gradient(circle at bottom, rgba(255,90,0,.18), transparent 35%),
+    radial-gradient(circle at top, rgba(255,180,0,.08), transparent 25%);
+
+    animation:fireGlow 6s infinite alternate;
+}
+
+@keyframes fireGlow{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.05);
+    }
+
+}
+
+/* SMOKE */
+
+.smoke{
+
+    position:fixed;
+
+    width:350px;
+    height:350px;
+
+    background:radial-gradient(circle, rgba(255,255,255,.08), transparent 70%);
+
+    border-radius:50%;
+
+    filter:blur(50px);
+
+    z-index:-9;
+
+    animation:smoke 18s infinite linear;
+}
+
+.smoke1{
+    left:-10%;
+    top:0;
+}
+
+.smoke2{
+    right:-10%;
+    bottom:0;
+    animation-duration:25s;
+}
+
+@keyframes smoke{
+
+    0%{
+        transform:translateY(0) translateX(0);
+    }
+
+    50%{
+        transform:translateY(-50px) translateX(30px);
+    }
+
+    100%{
+        transform:translateY(-100px) translateX(-30px);
+    }
+
+}
+
+/* HERO */
+
+.hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.90)),
+    url('https://imgur.com/ZKl829n.png');
+
+    background-size:cover;
+
+    background-position:center center 20%;
+
+    background-attachment:fixed;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+/* LOGO */
+
+.logo{
+
+    position:absolute;
+
+    top:20px;
+    left:20px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid rgba(255,220,120,.7);
+
+    box-shadow:
+    0 0 15px rgba(255,220,120,.6),
+    0 0 40px rgba(255,120,0,.4);
+
+    background:#1e4426;
+}
+
+/* LOGO TEXT */
+
+.logo-text h2{
+
+    font-family:'Cinzel',serif;
+
+    font-size:30px;
+
+    color:#ffe5a0;
+
+    text-shadow:
+    0 0 10px rgba(255,200,100,.6),
+    0 0 25px rgba(255,120,0,.5);
+}
+
+.logo-text p{
+
+    letter-spacing:4px;
+
+    color:#ddd;
+}
+
+/* SLOGAN */
+
+.slogan{
+
+    position:absolute;
+
+    top:30px;
+    right:30px;
+
+    max-width:300px;
+
+    text-align:right;
+
+    font-size:36px;
+
+    font-style:italic;
+
+    color:#ffe8b1;
+
+    text-shadow:
+    0 0 15px rgba(255,200,100,.8),
+    0 0 40px rgba(255,120,0,.5);
+
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        opacity:.8;
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.03);
+    }
+
+}
+
+/* TITLE */
+
+.hero h1{
+
+    font-family:'Cinzel',serif;
+
+    font-size:90px;
+
+    color:#ffe6a3;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 15px rgba(255,220,120,1),
+    0 0 40px rgba(255,120,0,.8),
+    0 0 90px rgba(255,80,0,.5);
+
+    animation:titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:
+        0 0 15px rgba(255,220,120,1),
+        0 0 40px rgba(255,120,0,.8);
+
+    }
+
+    to{
+
+        text-shadow:
+        0 0 25px rgba(255,240,180,1),
+        0 0 70px rgba(255,100,0,1),
+        0 0 130px rgba(255,60,0,.8);
+
+    }
+
+}
+
+.hero p{
+
+    font-size:28px;
+
+    max-width:900px;
+
+    line-height:1.7;
+
+    text-shadow:0 0 15px rgba(0,0,0,.9);
+}
+
+/* SCROLL */
+
+.scroll{
+
+    margin-top:40px;
+
+    font-size:24px;
+
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* NAV */
+
+.nav{
+
+    position:fixed;
+
+    right:20px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+
+    z-index:999;
+}
+
+.nav a{
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.5;
+
+    transition:.3s;
+}
+
+.nav a:hover{
+
+    opacity:1;
+
+    transform:scale(1.4);
+
+    box-shadow:0 0 15px rgba(255,220,120,.8);
+}
+
+/* SECTIONS */
+
+section{
+
+    min-height:100vh;
+
+    padding:120px 30px 80px;
+}
+
+/* MENU BACKGROUNDS */
+
+#ciorbe{
+
+    background:
+    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94));
+}
+
+#gratar{
+
+    background:
+    linear-gradient(rgba(8,15,8,.92),rgba(0,0,0,.96));
+}
+
+#special{
+
+    background:
+    linear-gradient(rgba(15,10,5,.94),rgba(0,0,0,.98));
+}
+
+/* TITLES */
+
+.menu-title{
+
+    text-align:center;
+
+    font-size:65px;
+
+    margin-bottom:60px;
+
+    font-family:'Cinzel',serif;
+
+    color:#ffe6a3;
+
+    text-shadow:
+    0 0 15px rgba(255,220,120,.8),
+    0 0 40px rgba(255,120,0,.5);
+}
+
+/* PRODUCTS */
+
+.products{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+}
+
+/* CARDS */
+
+.card{
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    transition:.5s;
+
+    box-shadow:
+    0 0 25px rgba(0,0,0,.5),
+    0 0 60px rgba(255,100,0,.10);
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.03);
+
+    box-shadow:
+    0 0 30px rgba(255,200,100,.25),
+    0 0 80px rgba(255,100,0,.20);
+}
+
+.card h3{
+
+    font-size:34px;
+
+    margin-bottom:20px;
+
+    color:#ffe8a8;
+}
+
+.card p{
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+/* POVESTE */
+
+.story{
+
+    background:
+    linear-gradient(rgba(0,0,0,.92),rgba(0,0,0,.96));
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.story-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 2fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+}
+
+.story-images{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+}
+
+.story-images img{
+
+    width:100%;
+
+    border-radius:25px;
+
+    object-fit:cover;
+
+    border:2px solid rgba(255,220,120,.25);
+
+    box-shadow:
+    0 0 20px rgba(255,220,120,.15),
+    0 0 60px rgba(255,100,0,.10);
+
+    transition:.4s;
+
+    filter:contrast(1.08) brightness(1.08) saturate(1.1);
+}
+
+.story-images img:hover{
+
+    transform:scale(1.03);
+}
+
+.story-text{
+
+    text-align:center;
+}
+
+.story-text h2{
+
+    font-size:65px;
+
+    margin-bottom:30px;
+
+    color:#ffe5a0;
+
+    font-family:'Cinzel',serif;
+
+    text-shadow:
+    0 0 15px rgba(255,220,120,.8),
+    0 0 40px rgba(255,120,0,.5);
+}
+
+.story-text h3{
+
+    font-size:28px;
+
+    color:#ddd;
+
+    margin-bottom:25px;
+}
+
+.story-text p{
+
+    font-size:20px;
+
+    line-height:2;
+
+    color:#f2f2f2;
+}
+
+/* FOOTER */
+
+footer{
+
+    background:black;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer h2{
+
+    font-size:42px;
+
+    color:#ffe6a3;
+
+    margin-bottom:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero{
+
+        background-attachment:scroll;
+    }
+
+    .hero h1{
+        font-size:48px;
+        line-height:1.2;
+    }
+
+    .hero p{
+        font-size:20px;
+    }
+
+    .menu-title{
+        font-size:38px;
+    }
+
+    .logo img{
+        width:65px;
+        height:65px;
+    }
+
+    .logo-text h2{
+        font-size:20px;
+    }
+
+    .slogan{
+        font-size:22px;
+        max-width:180px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .story-container{
+        grid-template-columns:1fr;
+    }
+
+    .story-text h2{
+        font-size:40px;
+    }
+
+    .story-text p{
+        font-size:18px;
+    }
+
+    .story-images{
+        flex-direction:row;
+        overflow:auto;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- EFFECTS -->
+
+<div class="smoke smoke1"></div>
+<div class="smoke smoke2"></div>
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+    <a href="#home"></a>
+    <a href="#ciorbe"></a>
+    <a href="#gratar"></a>
+    <a href="#special"></a>
+    <a href="#story"></a>
+</div>
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+
+    <div class="logo">
+
+        <img src="https://imgur.com/HW1c0ib.png">
+
+        <div class="logo-text">
+            <h2>Grill La Family</h2>
+            <p>FAMILY</p>
+        </div>
+
+    </div>
+
+    <div class="slogan">
+        Aici Se Strică Dieta ! 🔥
+    </div>
+
+    <h1>GRILL LA FAMILY</h1>
+
+    <p>
+        🍖 Mai mult decât mâncare, o experiență!<br>
+        Gust autentic românesc, preparate premium și atmosferă de familie.
+    </p>
+
+    <div class="scroll">
+        ⬇ Scroll pentru meniu ⬇
+    </div>
+
+</div>
+
+<!-- CIORBE -->
+
+<section id="ciorbe">
+
+    <h2 class="menu-title">🥣 CIORBE TRADIȚIONALE</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <h3>🥩 Ciorbă de Perișoare</h3>
+            <p>🔥 280 kcal</p>
+            <p>🥚 Ou • 🌿 Țelină • 🌾 Cereale</p>
+            <p>🚫 Lactoză: NU</p>
+        </div>
+
+        <div class="card">
+            <h3>🍗 Ciorbă Rădăuțeană</h3>
+            <p>🔥 320 kcal</p>
+            <p>🥛 Lactoză • 🥚 Ou • 🌿 Țelină</p>
+        </div>
+
+        <div class="card">
+            <h3>🐷 Ciorbă de Porc</h3>
+            <p>🔥 350 kcal</p>
+            <p>🌿 Țelină</p>
+        </div>
+
+        <div class="card">
+            <h3>🥓 Ciorbă de Afumătură</h3>
+            <p>🔥 420 kcal</p>
+            <p>🥔 Cartofi • 🌿 Țelină</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GRATAR -->
+
+<section id="gratar">
+
+    <h2 class="menu-title">🔥 PREPARATE LA GRĂTAR</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <h3>🌭 Mici Porc-Vită</h3>
+            <p>🔥 260 kcal</p>
+            <p>🥩 Gust autentic românesc</p>
+        </div>
+
+        <div class="card">
+            <h3>🥩 Ceafă de Porc</h3>
+            <p>🔥 520 kcal</p>
+            <p>🍖 Fragedă și suculentă</p>
+        </div>
+
+        <div class="card">
+            <h3>🍖 Coaste de Porc</h3>
+            <p>🔥 720 kcal</p>
+            <p>🔥 Premium Grill</p>
+        </div>
+
+        <div class="card">
+            <h3>🐑 Pastramă de Oaie</h3>
+            <p>🔥 600 kcal</p>
+            <p>🧄 Usturoi și condimente</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SPECIAL -->
+
+<section id="special">
+
+    <h2 class="menu-title">🔥 SPECIALITĂȚI</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <h3>🍗 Pulpe Dezosate</h3>
+            <p>🔥 360 kcal</p>
+        </div>
+
+        <div class="card">
+            <h3>🌶️ Cârnați Picanți</h3>
+            <p>🔥 660 kcal</p>
+        </div>
+
+        <div class="card">
+            <h3>🐑 Cârnați Oaie-Vită</h3>
+            <p>🔥 440 kcal</p>
+        </div>
+
+        <div class="card">
+            <h3>🔥 Evantai</h3>
+            <p>🔥 430 kcal</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- POVESTE -->
+
+<section class="story" id="story">
+
+    <div class="story-container">
+
+        <div class="story-images">
+
+            <img src="https://imgur.com/vuqWNmS.png">
+
+            <img src="https://imgur.com/lDjLMFB.png">
+
+        </div>
+
+        <div class="story-text">
+
+            <h2>Povestea Noastră</h2>
+
+            <h3>Prin Aprilie 2023 începe povestea noastră</h3>
+
+            <p>
+
+            <strong>Grill La Family</strong><br><br>
+
+            O poveste de familie, crescută odată cu cartierul.<br><br>
+
+            Pe vremea când cartierul abia se ridica din pământ şi străzile nu aveau încă suflet, am pus bazele a ceea ce astăzi numim cu mândrie Grill La Family.<br><br>
+
+            Nu am avut experiență, nu am avut bani de investit sau reclame. Am avut doar muncă, curaj şi încredere unul în celălalt.<br><br>
+
+            Am luat totul de la zero. Locația? Un colț gol. Grătarul? Pornit cu mâinile noastre. Rețetele? Învățate pas cu pas, cu gustul în minte și inima în farfurie.<br><br>
+
+            Visul? Ca oamenii din jurul nostru să nu vină doar la un grătar, ci să simtă că vin acasă, la noi.<br><br>
+
+            Astăzi, când cartierul e viu, cu copii pe trotuare şi vecini care se salută, și noi am crescut odată cu el.<br><br>
+
+            Fiecare client care ne trece pragul devine parte din această poveste simplă, dar adevărată.<br><br>
+
+            Suntem o familie și vă așteptăm cu tot sufletul, ca să vă convingeți că tot ce iese pe grătarul nostru are un singur ingredient de bază:<br><br>
+
+            <strong>Sinceritatea ❤️</strong>
+
+            </p>
+
+        </div>
+
+        <div class="story-images">
+
+            <img src="https://imgur.com/DS73Qxy.png">
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>🔥 Grill La Family 🔥</h2>
+
+    <p>Aici Se Strică Dieta ❤️</p>
+
+</footer>
+
+</body>
+</html>
